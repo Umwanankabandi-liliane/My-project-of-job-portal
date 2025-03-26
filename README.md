@@ -1,60 +1,66 @@
-Job Portal
-Welcome to the Job Portal! This website allows job seekers and employers to find and post job opportunities. Note: Currently, only the frontend (HTML, CSS, and JavaScript) is working, and the backend is still under development.
+# Job Portal
 
-Table of Contents
-Description
+Welcome to the Job Portal! This website allows job seekers and employers to find and post job opportunities. **Note:** Currently, only the frontend (HTML, CSS, and JavaScript) is working, while the backend is still under development.
 
-Technologies Used
+## Table of Contents
+- [Description](#description)
+- [Technologies Used](#technologies-used)
+- [How to Set Up](#how-to-set-up)
+- [Features](#features)
+- [Limitations](#limitations)
 
-How to Set Up
+## Description
 
-Features
-
-Limitations
-
-Description
 This Job Portal allows:
 
-Job seekers to sign up, log in, search for jobs, and apply.
+- **Job Seekers** to sign up, log in, search for jobs, and apply.
+- **Employers** to sign up, log in, and post job openings.
 
-Employers to sign up, log in, and post job openings.
+**Note:** The site is currently functional only in terms of the user interface. The backend (which connects everything together) is still under development, and the functionality of features like user registration, job posting, etc., is not yet working.
 
-Currently, the site is functional only in terms of the user interface. The backend (which connects everything together) is still in development, and the functionality of features like user registration, job posting, etc., is not yet working.
+## Technologies Used
 
-Technologies Used
-HTML (for creating the structure of the website)
+- **HTML**: For creating the structure of the website.
+- **CSS**: For styling the website.
+- **JavaScript**: For interactive elements like buttons.
+- **Django**: For the backend (still under development).
 
-CSS (for styling the website)
+## How to Set Up
 
-JavaScript (for interactive elements like buttons)
-
-Django (for the backend, but still under development)
-
-How to Set Up
 Follow these steps to run the Job Portal frontend on your computer:
-1. Clone the project
-First, get the project files by copying the repo to your computer:
+
+### 1. Clone the Project
+
+First, clone the repository to your local machine:
+
+```bash
 git clone https://github.com/Umwanankabandi-liliane/My-project-of-job-portal.git
-2. Open the project folder
-Go to the folder where you cloned the repository:
+```
 
-bash
-Copy
-Edit
+### 2. Open the Project Folder
+
+Navigate to the project folder:
+
+```bash
 cd My-project-of-job-portal
-3. Open index.html
-You can open the index.html file directly in your web browser. Simply double-click it, or use a code editor (like Visual Studio Code) to open it and run it live.
+```
 
-Note: Since the backend is not yet set up, you can only see the frontend design. Features like logging in or posting jobs are not functional yet.
+### 3. Open `index.html`
 
-Features
-Job seekers can view jobs: The job listings page will show available job opportunities.
+You can open the `index.html` file directly in your web browser. Simply double-click it, or use a code editor (like Visual Studio Code) to open it and run it live.
 
-Employers can see their job posts: Employers will see their job listings (though adding new posts is not yet functional).
+**Note:** Since the backend is not yet set up, you will only see the frontend design. Features like logging in or posting jobs are not functional yet.
 
-Responsive design: The layout looks good on different screen sizes (desktop and mobile).
+## Features
 
-Limitations
-No Backend: The backend functionality (such as login, registration, and posting jobs) is not working yet.
+- **Job seekers can view jobs**: The job listings page will show available job opportunities.
+- **Employers can see their job posts**: Employers will see their job listings (though adding new posts is not yet functional).
+- **Responsive design**: The layout looks good on different screen sizes (desktop and mobile).
 
-Static Pages: The pages are static and don't interact with a database. Features like applying for a job or posting a job are placeholders for future development.
+## Limitations
+
+- **No Backend**: The backend functionality (such as login, registration, and posting jobs) is not working yet.
+- **Static Pages**: The pages are static and don't interact with a database. Features like applying for a job or posting a job are placeholders for future development.
+```
+
+This structure is clean and organized, following best practices for README files. You can copy this directly into your GitHub README file, and it will make your project easier to understand for others.
