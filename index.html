@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobConnect</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f0f0; /* Light background */
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50; /* Dark gray background */
+            padding: 15px 25px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header .logo h1 {
+            color: #ecf0f1; /* Light color for logo text */
+            font-size: 28px;
+            margin: 0;
+        }
+
+        header .nav-center ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        header .nav-center ul li {
+            margin: 0 20px;
+        }
+
+        header .nav-center ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header .nav-right ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        header .nav-right ul li {
+            margin: 0 20px;
+        }
+
+        header .nav-right ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3498db; /* Light blue background */
+            padding: 50px 25px;
+        }
+
+        .hero .left {
+            max-width: 50%;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        .hero input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 16px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .hero button {
+            padding: 12px 25px;
+            background-color: #1abc9c; /* Teal button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 15px;
+        }
+
+        .hero button:hover {
+            background-color: #16a085; /* Lighter teal */
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Candidate Page Content */
+        .candidate-page, .internship-page {
+            display: none;
+            padding: 20px;
+        }
+
+        .candidate-page h2, .internship-page h2 {
+            font-size: 30px;
+            color: #2c3e50; /* Dark gray for section titles */
+        }
+
+        .candidate-page .search-bar, .internship-page .search-bar {
+            margin-bottom: 30px;
+        }
+
+        .candidate-page .search-bar input[type="text"], .internship-page .search-bar input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 70%;
+            margin-right: 10px;
+        }
+
+        .candidate-page .search-bar button, .internship-page .search-bar button {
+            padding: 10px 20px;
+            background-color: #3498db; /* Light blue button */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .candidate-page .job-list, .internship-page .job-list {
+            margin-top: 30px;
+        }
+
+        .candidate-page .job-list ul, .internship-page .job-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .candidate-page .job-list ul li, .internship-page .job-list ul li {
+            padding: 15px;
+            background-color: #ecf0f1; /* Light gray background for job items */
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .candidate-page .job-list ul li h3, .internship-page .job-list ul li h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .candidate-page .job-list ul li button, .internship-page .job-list ul li button {
+            padding: 10px 20px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .candidate-page .job-list ul li p, .internship-page .job-list ul li p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        /* Employer Page Styling */
+        .employer-page {
+            padding: 20px;
+        }
+
+        .employer-page h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .employer-page p {
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+
+        .employer-page button {
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .employer-page button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        #postJobForm {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        #postJobForm h3 {
+            font-size: 28px;
+            color: #2980b9;
+        }
+
+        #postJobForm label {
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        #postJobForm input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #bdc3c7;
+        }
+
+        #postJobForm button {
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50; /* Dark gray footer */
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer .footer-content .footer-logo h1 {
+            margin: 0;
+            color: #ecf0f1;
+        }
+
+        footer .footer-content .footer-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        footer .footer-content .footer-links ul li {
+            margin: 10px 0;
+        }
+
+        footer .footer-content .footer-links ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        footer .footer-content .contact-info p {
+            margin: 10px 0;
+            color: #ecf0f1;
+        }
+
+        /* Create Account & Login Page Styles */
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #bdc3c7;
+            font-size: 16px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-container button:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>JobConnect</h1>
+        </div>
+        <div class="nav-center">
+            <ul>
+                <li><a href="javascript:void(0)" onclick="showHomePage()">Home</a></li>
+                <li><a href="javascript:void(0)" onclick="showCandidatePage()">Candidate</a></li>
+                <li><a href="javascript:void(0)" onclick="showInternshipPage()">Internship</a></li>
+                <li><a href="javascript:void(0)" onclick="showEmployerPage()">Employer</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="javascript:void(0)" onclick="showCreateAccount()">Create Account</a></li>
+                <li><a href="javascript:void(0)" onclick="showLoginPage()">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="left">
+            <h1>Find Your Dream Job or Internship</h1>
+            <p>Browse job listings and internships to take the next step in your career.</p>
+            <input type="text" id="jobSearch" placeholder="Search for jobs or internships...">
+            <button onclick="searchJobs()">Search</button>
+        </div>
+        <div class="right">
+            <img src="job-image.jpg" alt="Job Search Image">
+        </div>
+    </div>
+
+    <!-- Candidate Page -->
+    <div class="candidate-page" id="candidatePage">
+        <h2>Job Listings</h2>
+        <div class="search-bar">
+            <input type="text" id="candidateSearch" placeholder="Search for jobs...">
+            <button onclick="searchJobs()">Search</button>
+        </div>
+        <div class="job-list" id="jobList">
+            <ul>
+                <li>
+                    <h3>Software Developer</h3>
+                    <p>Company: XYZ</p>
+                    <button>Apply Now</button>
+                </li>
+                <li>
+                    <h3>Data Analyst</h3>
+                    <p>Company: ABC</p>
+                    <button>Apply Now</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Internship Page -->
+    <div class="internship-page" id="internshipPage">
+        <h2>Internship Listings</h2>
+        <div class="search-bar">
+            <input type="text" id="internshipSearch" placeholder="Search for internships...">
+            <button onclick="searchJobs()">Search</button>
+        </div>
+        <div class="job-list" id="internshipList">
+            <ul>
+                <li>
+                    <h3>Data Science Intern</h3>
+                    <p>Company: DEF</p>
+                    <button>Apply Now</button>
+                </li>
+                <li>
+                    <h3>Software Engineering Intern</h3>
+                    <p>Company: GHI</p>
+                    <button>Apply Now</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Employer Page -->
+    <div class="employer-page" id="employerPage">
+        <h2>Post a Job</h2>
+        <p>Reach out to top candidates by posting your job openings here.</p>
+        <button onclick="showPostJobForm()">Post a Job</button>
+
+        <div id="postJobForm">
+            <h3>Post a Job</h3>
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle">
+            <label for="companyName">Company Name</label>
+            <input type="text" id="companyName">
+            <label for="jobDescription">Job Description</label>
+            <textarea id="jobDescription" rows="4"></textarea>
+            <button onclick="submitJob()">Post Job</button>
+        </div>
+    </div>
+
+    <!-- Create Account Form -->
+    <div id="createAccountForm" class="form-container" style="display: none;">
+        <h2>Create an Account</h2>
+        <input type="text" id="createUsername" placeholder="Username">
+        <input type="password" id="createPassword" placeholder="Password">
+        <input type="email" id="createEmail" placeholder="Email">
+        <button onclick="createAccount()">Create Account</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginForm" class="form-container" style="display: none;">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h1>JobConnect</h1>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="javascript:void(0)">About Us</a></li>
+                    <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                    <li><a href="javascript:void(0)">Contact</a></li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <p>Email: contact@jobconnect.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showHomePage() {
+            document.getElementById('candidatePage').style.display = 'none';
+            document.getElementById('internshipPage').style.display = 'none';
+            document.getElementById('employerPage').style.display = 'none';
+            document.getElementById('homePage').style.display = 'block';
+        }
+
+        function showCandidatePage() {
+            document.getElementById('candidatePage').style.display = 'block';
+            document.getElementById('internshipPage').style.display = 'none';
+            document.getElementById('employerPage').style.display = 'none';
+        }
+
+        function showInternshipPage() {
+            document.getElementById('candidatePage').style.display = 'none';
+            document.getElementById('internshipPage').style.display = 'block';
+            document.getElementById('employerPage').style.display = 'none';
+        }
+
+        function showEmployerPage() {
+            document.getElementById('candidatePage').style.display = 'none';
+            document.getElementById('internshipPage').style.display = 'none';
+            document.getElementById('employerPage').style.display = 'block';
+        }
+
+        function showCreateAccount() {
+            document.getElementById('createAccountForm').style.display = 'block';
+            document.getElementById('loginForm').style.display = 'none';
+        }
+
+        function showLoginPage() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('createAccountForm').style.display = 'none';
+        }
+
+        function showPostJobForm() {
+            document.getElementById('postJobForm').style.display = 'block';
+        }
+
+        function submitJob() {
+            alert('Job Posted!');
+        }
+
+        function searchJobs() {
+            alert('Searching...');
+        }
+
+        function createAccount() {
+            alert('Account Created!');
+        }
+
+        function login() {
+            alert('Logged In!');
+        }
+    </script>
+
+</body>
+</html>
