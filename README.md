@@ -1,18 +1,17 @@
 Job Portal
+
 Welcome to the Job Portal! This website allows job seekers and employers to find and post job opportunities. Note: Currently, only the frontend (HTML, CSS, and JavaScript) is working, and the backend is still under development.
 
 Table of Contents
+
 Description
-
 Technologies Used
-
 How to Set Up
-
 Features
-
 Limitations
 
 Description
+
 This Job Portal allows:
 
 Job seekers to sign up, log in, search for jobs, and apply.
@@ -22,12 +21,10 @@ Employers to sign up, log in, and post job openings.
 Currently, the site is functional only in terms of the user interface. The backend (which connects everything together) is still in development, and the functionality of features like user registration, job posting, etc., is not yet working.
 
 Technologies Used
+
 HTML (for creating the structure of the website)
-
 CSS (for styling the website)
-
 JavaScript (for interactive elements like buttons)
-
 Django (for the backend, but still under development)
 
 How to Set Up
@@ -38,10 +35,8 @@ git clone https://github.com/Umwanankabandi-liliane/My-project-of-job-portal.git
 2. Open the project folder
 Go to the folder where you cloned the repository:
 
-bash
-Copy
-Edit
 cd My-project-of-job-portal
+
 3. Open index.html
 You can open the index.html file directly in your web browser. Simply double-click it, or use a code editor (like Visual Studio Code) to open it and run it live.
 
